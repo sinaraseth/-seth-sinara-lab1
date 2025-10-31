@@ -12,11 +12,13 @@
     "chai": "^4.3.10",
     "eslint": "^8.57.0",
     "mocha": "^11.7.4",
+    "nyc": "^17.1.0",
     "supertest": "^7.1.4"
   },
   "scripts": {
     "start": "node server.js",
     "test": "mocha --exit",
+    "test:coverage": "nyc --reporter=html --reporter=text mocha --exit",
     "lint": "eslint ."
   }
 }
