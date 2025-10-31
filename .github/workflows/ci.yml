@@ -33,11 +33,25 @@ jobs:
 
       - name: Run tests with coverage
         run: yarn test:coverage
-        
+
       - name: Upload coverage report
         uses: actions/upload-artifact@v4
         with:
           name: coverage-report-node-${{ matrix.node-version }}
           path: coverage/
           retention-days: 30
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Deploy to Render
+        env:
+          RENDER_DEPLOY_HOOK: ${{ secrets.RENDER_DEPLOY_HOOK }}
+        run: |
+          curl -X POST $RENDER_DEPLOY_HOOK
     
