@@ -1,0 +1,22 @@
+{
+  "name": "-seth-sinara-lab1",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/sinaraseth/-seth-sinara-lab1.git",
+  "author": "sinraseth <sinraseth588@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "chai": "^6.2.0",
+    "eslint": "^8.57.0",
+    "mocha": "^11.7.4",
+    "supertest": "^7.1.4"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "test": "mocha --exit",
+    "lint": "eslint ."
+  }
+}
